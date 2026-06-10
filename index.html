@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Enneagram osobnosti – přehled 9&nbsp;typů, triád a&nbsp;instinktů.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+		rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<title>Průvodce Enneagramem</title>
+</head>
+
+<body>
+	<div class="bg">
+		<div class="bg-inner">
+			<div class="bg-black"></div>
+			<div class="bg-pattern"></div>
+			<div class="bg-filter"></div>
+		</div>
+		<div class="side pattern right" aria-hidden="true"></div>
+		<div class="side pattern left" aria-hidden="true"></div>
+	</div>
+
+	<nav class="navbar">
+		<a href="index.html" class="navbar_title">
+			<svg class="navbar_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+				<g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+					<circle cx="100" cy="100" r="80" />
+					<polygon points="100,20 169.3,140 30.7,140" />
+					<polygon points="151.4,38.7 127.4,175.2 178.8,86.1 48.6,38.7 72.6,175.2 21.2,86.1" />
+				</g>
+			</svg>
+			<span class="navbar_title-text">Průvodce Enneagramem</span>
+		</a>
+
+		<button class="navbar__toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+
+		<ul class="navbar_menu" id="main-menu">
+			<li><a href="index.html" class="navbar_link">Enneagram</a></li>
+			<li><a href="instincts.html" class="navbar_link">Instinkty</a></li>
+			<li><a href="triads.html" class="navbar_link">Centra</a></li>
+			<li><a href="types.html" class="navbar_link">Typy</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<section class="hero">
+			<div class="hero-text">
+				<h1>Enneagram osobnosti</h1>
+				<p>Enneagram je dynamický systém osobnostního rozvoje, který popisuje devět odlišných způsobů, jakými
+					lidé
+					vnímají realitu, zpracovávají emoce a&nbsp;reagují na svět kolem sebe. Nejedná se o&nbsp;obyčejné
+					škatulkování,
+					ale o&nbsp;hlubokou mapu lidského vnitra, která odhaluje naše podvědomé motivace, skryté strachy,
+					obranné
+					mechanismy a&nbsp;především cestu k&nbsp;osobnímu růstu a&nbsp;pochopení druhých.
+				</p>
+			</div>
+			<svg class="hero-image" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="150" cy="150" r="110" fill="none" stroke="currentColor" stroke-width="2" />
+
+				<polygon points="150,40 245.3,205 54.7,205" fill="none" stroke="currentColor" stroke-width="2" />
+
+				<polyline points="220.7,65.7 187.6,253.4 258.3,130.9 79.3,65.7 112.4,253.4 41.7,130.9 220.7,65.7"
+					fill="none" stroke="currentColor" stroke-width="2" />
+
+				<g fill="currentColor" font-size="22" font-family="Times New Roman, serif" text-anchor="middle"
+					dominant-baseline="central">
+					<text x="150" y="18">9</text>
+					<text x="235" y="48">1</text>
+					<text x="280" y="128">2</text>
+					<text x="264" y="217">3</text>
+					<text x="196" y="274">4</text>
+					<text x="104" y="274">5</text>
+					<text x="36" y="217">6</text>
+					<text x="20" y="128">7</text>
+					<text x="65" y="48">8</text>
+				</g>
+			</svg>
+		</section>
+
+		<section class="summary">
+			<h2 class="section-header">Vysvětlení Enneagramu</h2>
+			<div class="summary-text">
+				<p>Enneagram je strukturální model osobnostní typologie, který popisuje devět základních vzorců lidského
+					vnímání, prožívání a&nbsp;chování. Na&nbsp;rozdíl od&nbsp;popisných psychologických systémů, které
+					se zaměřují na&nbsp;vnější projevy, Enneagram analyzuje vnitřní motivace, podvědomé strachy
+					a&nbsp;fixace, které tyto projevy způsobují. Každý z&nbsp;9&nbsp;typů představuje specifickou
+					strategii zvládání nároků vnějšího světa, kterou si jedinec fixuje během raného vývoje.</p>
+
+				<p>Pro komplexní analýzu osobnosti se v&nbsp;tomto systému kombinuje základní typ se 3&nbsp;biologickými
+					instinkty (sebezáchovným, sociálním a&nbsp;intimním). Zatímco enneagramový typ určuje charakter
+					vnitřní motivace a&nbsp;obranných mechanismů, dominantní instinkt definuje prioritní oblast,
+					do&nbsp;které člověk svou energii v&nbsp;každodenním životě směřuje (zajištění zdrojů
+					a&nbsp;bezpečí, fungování ve&nbsp;skupině, nebo intenzivní individuální vazby). Propojením typu
+					a&nbsp;instinktu vzniká 27&nbsp;podtypů, což umožňuje přesnější identifikaci automatických vzorců
+					chování a&nbsp;definování konkrétních směrů pro osobní i&nbsp;profesní rozvoj.</p>
+			</div>
+
+		</section>
+
+		<section class="types" id="instincts">
+			<h2 class="section-header">Instinkty</h2>
+			<p class="types-intro">Instinkty představují základní biologické mechanismy přežití, které určují,
+				do&nbsp;jaké
+				oblasti reality jedinec prioritně a&nbsp;automaticky investuje největší množství své pozornosti
+				a&nbsp;životní energie:</p>
+			<ul class="row">
+				<li class="card">
+					<a href="instincts.html#SP">
+						<div class="card-header">
+							<span class="type-number">Sp</span>
+							<h3>Sebezáchovný</h3>
+						</div>
+					</a>
+					<p>Tento instinkt orientuje pozornost na&nbsp;fyzické bezpečí, komfort, zdraví a&nbsp;materiální
+						stabilitu. Jedinci s&nbsp;touto dominantní oblastí se primárně zabývají zajištěním dostatku
+						zdrojů,
+						správou financí, kvalitou bydlení a&nbsp;předvídatelností svého prostředí, aby minimalizovali
+						rizika. V&nbsp;rámci svého enneagramového typu projevují vyšší míru praktičnosti, opatrnosti
+						a&nbsp;nezávislosti na&nbsp;okolí, přičemž sociální interakce často vnímají jako sekundární
+						nástroj
+						k&nbsp;udržení vlastní stability.</p>
+				</li>
+				<li class="card">
+					<a href="instincts.html#SO">
+						<div class="card-header">
+							<span class="type-number">So</span>
+							<h3>Sociální</h3>
+						</div>
+					</a>
+					<p>Tento instinkt zaměřuje vědomí na&nbsp;fungování v&nbsp;rámci skupin, hierarchii, společenské
+						role
+						a&nbsp;vzájemné vazby mezi lidmi. Tito jedinci jsou vysoce vnímaví vůči dynamice kolektivu,
+						normám
+						chování a&nbsp;svému vlastnímu postavení v&nbsp;sociální struktuře. Vyhledávají dlouhodobé
+						spojenectví, usilují o&nbsp;přijetí komunitou a&nbsp;často přizpůsobují své osobní cíle potřebám
+						celku. Úspěch a&nbsp;bezpečí neodvozují od&nbsp;materiálních věcí, ale od&nbsp;pevnosti
+						a&nbsp;stability své pozice v&nbsp;sociální síti.</p>
+				</li>
+				<li class="card">
+					<a href="instincts.html#SX">
+						<div class="card-header">
+							<span class="type-number">Sx</span>
+							<h3>Intimní (Sexuální)</h3>
+						</div>
+					</a>
+					<p>Tento instinkt je poháněn vyhledáváním intenzivní stimulace, hlubokého individuálního spojení
+						a&nbsp;vzájemné chemie. Pozornost jedince není cílena na&nbsp;širokou skupinu, ale
+						na&nbsp;konkrétní
+						objekty zájmu, ať už jde o&nbsp;partnera, blízkého přítele, nebo pohlcující myšlenku či projekt.
+						Projevuje se vysokou mírou emoční intenzity, magnetismem a&nbsp;potřebou neustálého
+						energetického
+						přenosu. Tito lidé jsou ochotni riskovat materiální bezpečí i&nbsp;společenský status výměnou
+						za&nbsp;prožitek absolutní blízkosti nebo fascinace.</p>
+				</li>
+			</ul>
+		</section>
+
+		<section class="types" id="triads">
+			<h2 class="section-header">Centra</h2>
+			<p class="types-intro">Centra inteligence popisují, jakým orgánem nejčastěji vnímáme svět a&nbsp;jaká skrytá
+				emoce nás podvědomě
+				pohání. Devět typů se dělí do&nbsp;tří skupin:</p>
+			<ul class="row">
+				<li class="card">
+					<a href="triads.html#HEART">
+
+						<div class="card-header">
+							<h3>Srdeční centrum</h3>
+						</div>
+					</a>
+					<p>Do tohoto centra patří typy <strong>Dvojka</strong>, <strong>Trojka</strong>
+						a&nbsp;<strong>Čtyřka</strong>. Svět vnímají skrze vztahy, city a&nbsp;to, jak je
+						vidí ostatní, přičemž jejich ústřední emocí je stud nebo strach z&nbsp;odmítnutí.
+					</p>
+					<p><strong>Dvojka</strong> se snaží
+						získat přijetí pomáháním druhým, <strong>Trojka</strong> se orientuje na výkon a&nbsp;úspěch,
+						aby
+						byla obdivována, a
+						<strong>Čtyřka</strong> sází na jedinečnost a&nbsp;autenticitu, aby nebyla přehlédnuta. Klíčová
+						je
+						pro ně otázka
+						vlastní identity, image a&nbsp;uznání, a&nbsp;rozhodují se především na základě srdce
+						a&nbsp;citových vazeb.
+					</p>
+				</li>
+				<li class="card">
+					<a href="triads.html#HEAD">
+
+						<div class="card-header">
+							<h3>Hlavové centrum</h3>
+						</div>
+					</a>
+					<p>Do tohoto centra patří typy <strong>Pětka</strong>, <strong>Šestka</strong> a
+						<strong>Sedmička</strong>. Tito lidé analyzují svět pomocí logiky,
+						strategií a&nbsp;informací, přičemž jejich hnacím motorem a&nbsp;základní emocí je strach
+						a&nbsp;úzkost z&nbsp;nepředvídatelnosti.
+					</p>
+					<p><strong>Pětka</strong> na strach reaguje hromaděním vědomostí a&nbsp;stahováním se do ústraní,
+						<strong>Šestka</strong> neustálým hledáním rizik a&nbsp;autorit/jistot
+						a&nbsp;<strong>Sedmička</strong>
+						utíká před úzkostí k&nbsp;plánování
+						pozitivních zážitků a&nbsp;optimismu. Hledají v&nbsp;životě bezpečí, mentální jasnost
+						a&nbsp;jistotu a&nbsp;ze všeho
+						nejdříve potřebují věcem logicky porozumět.
+					</p>
+				</li>
+				<li class="card">
+					<a href="triads.html#GUT">
+
+						<div class="card-header">
+							<h3>Břišní centrum</h3>
+						</div>
+					</a>
+					<p>Do tohoto centra patří typy <strong>Osmička</strong>, <strong>Devítka</strong>
+						a&nbsp;<strong>Jednička</strong>. Jejich hlavním tématem je kontrola nad
+						vlastním prostředím, nastavení osobních hranic a&nbsp;základní emocí, se kterou podvědomě
+						pracují, je
+						hněv.
+					</p>
+					<p><strong>Osmička</strong> hněv&nbsp;vyjadřuje navenek, <strong>Jednička</strong> ho potlačuje
+						a&nbsp;obrací
+						dovnitř do sebekritiky a&nbsp;<strong>Devítka</strong> se mu vyhýbá, aby si udržela vnitřní
+						klid. Lidé z&nbsp;tohoto centra se
+						rozhodují na základě
+						instinktu, vnitřního pocitu v&nbsp;těle („gut feeling“) a&nbsp;silně vnímají spravedlnost,
+						bezpečí a
+						integritu.
+					</p>
+				</li>
+			</ul>
+		</section>
+
+		<section class="types" id="types">
+			<h2 class="section-header">Typy</h2>
+			<p class="types-intro">Enneagram rozlišuje 9&nbsp;základních typů osobnosti. Každý typ představuje jeden
+				specifický pohled na svět –
+				filtr, skrze který se díváme na realitu, a&nbsp;strategii, kterou jsme si vyvinuli k&nbsp;přežití:</p>
+			<ul class="row">
+				<li class="card">
+					<a href="types.html#E2">
+						<div class="card-header">
+							<h3>Dvojka</h3>
+							<span class="type-number">E2</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;2 (Pomocník): Jeho hlavním motorem je podvědomá potřeba být milován, přijímán
+						a&nbsp;oceňován za
+						svou podporu, proto přirozeně skenuje a&nbsp;naplňuje potřeby lidí kolem sebe. Má obrovskou
+						schopnost
+						empatie, je vřelý, štědrý a&nbsp;dokáže lidi upřímně povzbudit. Často však úplně přehlíží své
+						vlastní
+						potřeby a&nbsp;touhy. Jeho stínem je podvědomá snaha získat si závislost ostatních nebo pocit
+						ublížení
+						a&nbsp;hrdosti, pokud se mu jeho investovaná péče a&nbsp;pozornost nevrací.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E3">
+						<div class="card-header">
+							<h3>Trojka
+							</h3>
+							<span class="type-number">E3</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;3 (Úspěšný realizátor): Tento typ odvozuje svou hodnotu od svých výsledků, produktivity
+						a&nbsp;od toho, jak kompetentně a&nbsp;úspěšně působí v&nbsp;očích druhých. Je neuvěřitelně
+						pracovitý,
+						ambiciózní a&nbsp;dokáže skvěle přizpůsobit své chování i&nbsp;image požadavkům prostředí, aby
+						dosáhl
+						stanovených cílů. Dokáže efektivně motivovat lidi kolem sebe. Jeho největším úskalím je však to,
+						že
+						kvůli neustálému zaměření na výkon ztrácí kontakt se svými skutečnými city, vlastním já
+						a&nbsp;snadno
+						propadá vyhoření.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E4">
+						<div class="card-header">
+							<h3>Čtyřka</h3>
+							<span class="type-number">E4</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;4 (Individualista / Romantik): Svět vnímá přes hluboké, intenzivní emoce a&nbsp;touží
+						najít svůj
+						jedinečný význam, identitu a&nbsp;absolutní vnitřní autenticitu. Odmítá povrchnost a&nbsp;často
+						v&nbsp;sobě
+						nese pocit, že je v&nbsp;jádru jiný než ostatní, kvůli čemuž trpí pocity nepochopení
+						a&nbsp;izolace.
+						Přináší do světa hlubokou kreativitu, estetické cítění a&nbsp;schopnost provázet druhé těžkými
+						stavy.
+						Snadno však propadá melancholii, náladovosti a&nbsp;idealizování toho, co mu v&nbsp;životě
+						aktuálně
+						chybí.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E5">
+						<div class="card-header">
+							<h3>Pětka</h3>
+							<span class="type-number">E5</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;5 (Pozorovatel / Analytik): Žije hlavně ve světě myšlenek a&nbsp;konceptů; realitu
+						sleduje z&nbsp;bezpečné
+						vzdálenosti, aby nejdříve všemu logicky porozuměl, než do ní aktivně vstoupí. Úzkostlivě si
+						chrání
+						svůj čas, soukromí a&nbsp;vnitřní energii, protože se snadno cítí zahlcen emočními nároky
+						ostatních.
+						Je to brilantní, objektivní a&nbsp;nezávislý myslitel s&nbsp;hlubokými znalostmi. Kvůli silné
+						obraně
+						svých hranic a&nbsp;strachu z&nbsp;neschopnosti však může působit chladně, odtažitě
+						a&nbsp;emočně izolovaně.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E6">
+						<div class="card-header">
+							<h3>Šestka</h3>
+							<span class="type-number">E6</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;6 (Loajální strážce / Skeptik): Svět vnímá jako nepředvídatelné a&nbsp;potenciálně
+						nebezpečné
+						místo, proto jeho mysl automaticky skenuje okolí a&nbsp;vytváří scénáře pro případ nouze. Hledá
+						pevnou
+						půdu pod nohama, bezpečí a&nbsp;spolehlivé spojenectví, přičemž je pro něj klíčová loajalita
+						k&nbsp;rodině,
+						přátelům či myšlenkám. Je to nesmírně zodpovědný, praktický a&nbsp;věrný parťák, který skvěle
+						řeší
+						krizové situace. Často ho však paralyzuje vnitřní úzkost, pochybnosti a&nbsp;nedůvěra vůči
+						autoritám či
+						sobě samému.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E7">
+						<div class="card-header">
+							<h3>Sedmička</h3>
+							<span class="type-number">E7</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;7 (Požitkář / Epikurejec): Je to energický optimista, který chce od života vyzkoušet co
+						nejvíce možností a&nbsp;neustále generuje nové plány, vize a&nbsp;pozitivní zážitky. Jeho rychlá
+						mysl
+						skvěle propojuje myšlenky a&nbsp;vidí příležitosti tam, kde ostatní ne. Tato hyperaktivita je
+						však často
+						obranným štítem, kterým podvědomě utíká před vnitřním strachem, nudou, limity a&nbsp;především
+						před
+						zpracováním psychické bolesti či smutku. Mívá velký problém udržet pozornost u&nbsp;jedné věci
+						a&nbsp;dotahovat projekty.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E8">
+						<div class="card-header">
+							<h3>Osmička</h3>
+							<span class="type-number">E8</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;8 (Vůdce / Ochránce): Disponuje obrovskou vitální energií a&nbsp;touží mít situaci
+						i&nbsp;své
+						prostředí pevně pod kontrolou, aby zabránil jakémukoli pokusu o&nbsp;manipulaci či ovládání své
+						osoby.
+						Je přímočarý, spravedlivý, nebojí se zdravého konfliktu a&nbsp;instinktivně se staví na obranu
+						slabších
+						a&nbsp;nespravedlivě utlačovaných. Navenek buduje tvrdý krunýř síly a&nbsp;neporazitelnosti. Pod
+						ním se
+						však skrývá velmi zranitelné nitro a&nbsp;strach z&nbsp;toho, že pokud ukáže slabost, bude
+						okamžitě
+						zneužit.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E9">
+						<div class="card-header">
+							<h3>Devítka</h3>
+							<span class="type-number">E9</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;9 (Mírotvorce): Ze všeho nejvíc touží po vnitřním klidu, stabilitě a&nbsp;harmonii,
+						kvůli čemuž
+						se podvědomě vyhýbá jakýmkoli mezilidským i&nbsp;vnitřním konfliktům. Má obrovský dar neutrality
+						– dokáže
+						skvěle a&nbsp;bez předsudků chápat úhly pohledu všech stran a&nbsp;uklidňovat napjaté situace.
+						Jeho
+						největším stínem je však to, že potlačuje své vlastní názory, hněv a&nbsp;touhy, odkládá
+						důležitá
+						rozhodnutí a&nbsp;raději se přizpůsobí okolí, jen aby udržel zdánlivý klid.</p>
+				</li>
+				<li class="card">
+					<a href="types.html#E1">
+						<div class="card-header">
+							<h3>Jednička</h3>
+							<span class="type-number">E1</span>
+						</div>
+					</a>
+					<p>Typ&nbsp;1 (Perfekcionista / Reformátor): Tento typ je poháněn silnou vnitřní touhou žít
+						v&nbsp;souladu se
+						svými vysokými morálními zásadami a&nbsp;dělat věci správně. Vnímá svět skrze ideály
+						a&nbsp;neustále slyší
+						vnitřního kritika, který ho nutí zlepšovat sebe i&nbsp;své okolí. Vyniká obrovskou integritou,
+						spolehlivostí a&nbsp;smyslem pro spravedlnost. Jeho největší výzvou je však chronická
+						nespokojenost z&nbsp;nedokonalosti
+						světa, skrytý potlačovaný hněv a&nbsp;neschopnost uvolnit se bez pocitu viny.</p>
+				</li>
+			</ul>
+		</section>
+
+	</main>
+
+
+	<footer class="site-footer">
+		<section class="footer-content">
+			<div class="footer-brand">
+				<h1>Průvodce Enneagramem</h1>
+				<p>Objevte hloubku své osobnosti, pochopte své motivace a&nbsp;vydejte se na cestu vědomého osobního
+					růstu.
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<h2>Navigace</h2>
+				<ul>
+					<li><a href="index.html">Hlavní strana</a></li>
+					<li><a href="types.html">9 Typů</a></li>
+					<li><a href="triads.html">Centra</a></li>
+					<li><a href="instincts.html">Instinkty</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-info">
+				<h2>O projektu</h2>
+				<p>Tento průvodce slouží jako ucelený přehled enneagramatického systému pro všechny, kteří hledají
+					hlubší sebepoznání a&nbsp;porozumění ostatním.</p>
+			</div>
+		</section>
+
+		<div class="footer-bottom">
+			<p>&copy; 2026 Průvodce Enneagramem. Všechna práva vyhrazena.</p>
+		</div>
+	</footer>
+
+	<script src="main.js"></script>
+</body>
+
+</html>

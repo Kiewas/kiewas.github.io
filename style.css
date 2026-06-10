@@ -1,0 +1,940 @@
+/* ==========================================================================
+   OBSAH (TABLE OF CONTENTS)
+   1. CSS Reset & Globální styly
+   2. Proměnné (Custom Properties)
+   3. Pozadí stránky (Background)
+   4. Navigace (Navbar)
+   5. Sekce & Hero
+   6. Karty (Cards)
+   7. Navigační mřížka (Types Menu)
+   8. Detailní popisy (Descriptions)
+   9. Scroll-to-top tlačítko
+   10. Patička (Footer)
+   11. Responsivita (Media Queries)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. CSS RESET & GLOBÁLNÍ STYLY
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Alegreya Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	color: var(--primary-light);
+	line-height: 1.5;
+	min-height: 100vh;
+	padding-left: var(--panel-width);
+	padding-right: var(--panel-width);
+}
+
+main {
+	margin-top: 8rem;
+}
+
+a {
+	color: var(--primary-light);
+	text-decoration: none;
+}
+
+/* Kotvení sekcí pod fixní navbar */
+section[id],
+div[id],
+article[id],
+aside[id],
+footer[id] {
+	scroll-margin-top: var(--navbar-height);
+}
+
+
+/* ==========================================================================
+   2. PROMĚNNÉ (CUSTOM PROPERTIES)
+   ========================================================================== */
+
+:root {
+	/* Barevná paleta */
+	--primary-dark:       #3c1e5e;
+	--primary-mid:        #563682;
+	--primary-light:      #d1b4e2;
+	--accent:             #584791;
+	--card:               rgb(91, 110, 173, 0.162);
+	--background-color:   #6737a5;
+	--translucent:        rgba(180, 185, 247, 0.074);
+
+	/* Přechody */
+	--transition:         all 0.25s ease;
+	--transition-longer:  all 0.3s ease;
+
+	/* Rozvržení */
+	--panel-width:        8rem;
+	--navbar-height:      90px;
+	--pattern-url:        url('images/pattern.svg');
+}
+
+
+/* ==========================================================================
+   3. POZADÍ STRÁNKY (BACKGROUND)
+   ========================================================================== */
+
+.bg {
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	background-color: var(--background-color);
+	background-size: cover;
+	pointer-events: none;
+}
+
+.bg-inner {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: var(--panel-width);
+	right: var(--panel-width);
+}
+
+.bg-inner > * {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.bg-black {
+	background-color: black;
+	opacity: 40%;
+}
+
+.bg-pattern {
+	position: fixed;
+	z-index: -1;
+	background-image: url('images/dia-grid.jpg');
+	background-repeat: repeat;
+	background-position: center;
+	opacity: 25%;
+	filter: blur(0.15em);
+	will-change: filter, transform;
+}
+
+.bg-filter {
+	z-index: -1;
+	background-image: url('images/grain-filter.jpg');
+	background-size: cover;
+	background-repeat: repeat;
+	background-position: center;
+	opacity: 17%;
+	filter: blur(0.4em);
+	will-change: filter, transform;
+}
+
+.side {
+	position: fixed;
+	top: var(--navbar-height);
+	bottom: 0;
+	width: var(--panel-width);
+	z-index: 1;
+	background-image: var(--pattern-url);
+	background-repeat: repeat-y;
+	background-position: center top;
+	background-size: 100%;
+	opacity: 40%;
+}
+
+.side.left  { left: 0; }
+.side.right { right: 0; }
+
+
+/* ==========================================================================
+   4. NAVIGACE (NAVBAR)
+   ========================================================================== */
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: var(--navbar-height);
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 2rem;
+	background-color: var(--primary-dark);
+}
+
+.navbar_title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--primary-light);
+	text-decoration: none;
+}
+
+.navbar_title-text {
+	font-weight: 700;
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
+	margin-left: 1rem;
+}
+
+.navbar_logo {
+	display: inline-block;
+	vertical-align: middle;
+	height: 64px;
+	width: auto;
+	color: var(--primary-light);
+}
+
+.navbar_menu {
+	display: flex !important;
+	list-style: none;
+	gap: 0.5rem;
+}
+
+.navbar_link {
+	display: block;
+	padding: 0.6rem 1.2rem;
+	color: var(--primary-light);
+	font-size: 1.1rem;
+	font-weight: 700;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	transition: var(--transition);
+}
+
+.navbar_link:hover {
+	background-color: rgba(170, 98, 179, 0.2);
+	border-color: var(--primary-light);
+}
+
+.navbar_link:focus-visible {
+	background-color: rgba(170, 98, 179, 0.4);
+	border-color: var(--primary-light);
+}
+
+/* Burger menu (mobilní) */
+.navbar__toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	z-index: 1001;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.navbar__toggle span {
+	width: 25px;
+	height: 3px;
+	border-radius: 3px;
+	background-color: var(--primary-light);
+	transition: var(--transition);
+}
+
+
+/* ==========================================================================
+   5. SEKCE & HERO
+   ========================================================================== */
+
+.hero,
+.hero-sec,
+.summary,
+.types {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	box-sizing: border-box;
+}
+
+.hero-sec,
+.summary,
+.types {
+	flex-direction: column;
+}
+
+.hero {
+	flex-direction: row;
+	gap: 2rem;
+	padding: 4rem;
+	margin: 2rem auto;
+	max-width: 1400px;
+	border-radius: 20px;
+	background-color: var(--translucent);
+}
+
+.hero-sec {
+	flex-direction: column;
+	gap: 1rem;
+	padding: 2rem;
+	margin: 1rem auto;
+	max-width: 1200px;
+	border-radius: 20px;
+	background-color: var(--translucent);
+	text-align: center;
+}
+
+.summary {
+	padding: 4rem;
+	margin: 2em auto;
+	max-width: 1200px;
+	text-align: center;
+}
+
+.types {
+	padding: 2rem 3rem;
+	margin: 2em auto;
+	max-width: 1400px;
+	border-radius: 20px;
+}
+
+.hero-text {
+	flex: 1;
+	margin: auto 2rem;
+	text-align: left;
+}
+
+.hero-text h1 {
+	margin-bottom: 1rem;
+	font-size: clamp(2.2rem, 5vw, 4rem);
+	font-weight: 700;
+}
+
+.hero-text p {
+	font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+.hero-image {
+	display: flex;
+	width: 100%;
+	max-width: 480px;
+	height: auto;
+	margin: 0 auto;
+	color: var(--primary-light);
+}
+
+.hero-sec-text {
+	display: block;
+	width: 100%;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+.hero-sec h1 {
+	margin-bottom: 1rem;
+	font-size: clamp(1.9rem, 4vw, 3rem);
+	font-weight: 700;
+}
+
+.hero-sec p {
+	font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+}
+
+.summary-text {
+	background-color: var(--translucent);
+	border-radius: 20px;
+}
+
+.summary-text h2 {
+	margin: 2rem auto;
+}
+
+.summary-text p {
+	padding: 2rem;
+	font-size: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.section-header {
+	margin-bottom: 2rem;
+	font-size: clamp(1.5rem, 3vw, 2.2rem);
+	text-align: center;
+}
+
+.top-wrapper {
+	margin-bottom: 3rem;
+}
+
+
+/* ==========================================================================
+   6. KARTY (CARDS)
+   ========================================================================== */
+
+.row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	justify-content: center;
+	gap: 2rem;
+	width: 100%;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	min-width: 280px;
+	padding: 1em 2em;
+	border-radius: 10px;
+	background-color: var(--translucent);
+	list-style-type: none;
+	text-align: center;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	border: 1px solid var(--primary-mid);
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card > p {
+	margin-bottom: 1.5rem;
+}
+
+.card > p:last-of-type {
+	margin-bottom: 0;
+}
+
+.card-header {
+	position: relative;
+	width: 100%;
+	padding: 0.75rem 0;
+	text-align: center;
+}
+
+.card-header h3 {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.type-number {
+	position: absolute;
+	top: 50%;
+	left: 5%;
+	transform: translateY(-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-color: var(--primary-mid);
+	color: var(--primary-light);
+	font-size: 1.25rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+/* ==========================================================================
+   7. NAVIGAČNÍ MŘÍŽKA (TYPES MENU)
+   ========================================================================== */
+
+.types-intro {
+	max-width: 65ch;
+	margin: 0 auto 3rem auto;
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.6;
+	color: var(--primary-light);
+	text-align: center;
+	opacity: 0.95;
+}
+
+.types-menu-container {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto 1rem auto;
+	padding: 1.5rem;
+	border-radius: 14px;
+	border: 1px solid rgba(209, 180, 226, 0.1);
+	background: var(--card);
+}
+
+.types-menu-container h2 {
+	margin-bottom: 1.25rem;
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
+
+.types-menu-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+	list-style: none;
+	width: 100%;
+}
+
+.types-menu-grid a {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 1rem;
+	border-radius: 10px;
+	border: 1px solid rgba(209, 180, 226, 0.05);
+	background: rgba(255, 255, 255, 0.03);
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: 500;
+	transition: var(--transition);
+}
+
+.types-menu-grid a:hover {
+	background: rgba(129, 98, 179, 0.15);
+	border-color: rgba(192, 180, 226, 0.3);
+	color: #fff;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.types-menu-grid a span {
+	padding: 0.2rem 0.5rem;
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.1);
+	color: var(--primary-light);
+	font-size: 0.85rem;
+	font-weight: bold;
+	transition: var(--transition);
+}
+
+.types-menu-grid a:hover span {
+	background: rgb(90, 48, 158);
+	color: var(--primary-light);
+}
+
+.types-menu-grid a small {
+	margin: 0;
+	font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+}
+
+
+/* ==========================================================================
+   8. DETAILNÍ POPISY (DESCRIPTIONS)
+   ========================================================================== */
+
+.descriptions {
+	padding: 0 clamp(1rem, 5vw, 4rem);
+}
+
+.description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	gap: 1rem;
+	padding: 2rem;
+	margin: 3rem auto;
+	max-width: 850px;
+	border-radius: 16px;
+	border: 1px solid rgba(209, 180, 226, 0.1);
+	background-color: var(--translucent);
+	text-align: center;
+}
+
+.desc-header {
+	display: contents;
+	margin: 0.5rem auto;
+	gap: 0.5rem;
+	text-align: center;
+}
+
+.desc-header h2 {
+	font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.desc-type-number {
+	padding: 0.3rem 0.75rem;
+	border-radius: 20px;
+	border: 1px solid rgba(209, 180, 226, 0.2);
+	background-color: var(--primary-mid);
+	color: var(--primary-light);
+	font-size: 1.15rem;
+	font-weight: bold;
+}
+
+.desc-sub-header {
+	margin: 1rem auto 0.25rem auto;
+	font-size: clamp(1.1rem, 2vw, 1.6rem);
+	text-align: center;
+}
+
+.desc-text p {
+	margin-bottom: 1rem;
+	font-size: clamp(1rem, 1.5vw, 1.2rem);
+	line-height: 1.6;
+	text-align: justify;
+}
+
+
+/* ==========================================================================
+   9. SCROLL-TO-TOP TLAČÍTKO
+   ========================================================================== */
+
+.scroll-to-top-btn {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 99;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	border: 1px solid rgba(209, 180, 226, 0.2);
+	background-color: var(--primary-mid);
+	color: var(--primary-light);
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(15px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	transition: var(--transition);
+}
+
+.scroll-to-top-btn svg {
+	width: 20px;
+	height: 20px;
+	transition: var(--transition);
+}
+
+.scroll-to-top-btn.show {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+	background-color: var(--primary-light);
+	color: var(--primary-dark);
+	transform: translateY(-3px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-to-top-btn:hover svg {
+	transform: scale(1.1);
+}
+
+
+/* ==========================================================================
+   10. PATIČKA (FOOTER)
+   ========================================================================== */
+
+ .site-footer {
+	position: absolute;
+	left: 0;
+	z-index: 9999;
+	display: block;
+	clear: both;
+	min-width: 100%;
+	box-sizing: border-box;
+	padding: 4rem 2rem 2rem 2rem;
+	margin-top: 3rem;
+	border-top: 1px solid var(--translucent);
+	background-color: #3c1e5e;
+	color: #ffffff; 
+}
+
+.footer-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.footer-brand { flex: 1 1 auto; width: 400px; max-width: 100%; }
+.footer-links { flex: 1 1 auto; width: 200px; max-width: 100%; }
+.footer-info  { flex: 1 1 auto; width: 300px; max-width: 100%; }
+
+.site-footer h2 {
+	margin-bottom: 1.2rem;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 1.6rem;
+	color: var(--primary-light);
+}
+
+.site-footer h3 {
+	margin-bottom: 1.2rem;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 1.2rem;
+	color: var(--primary-light);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.site-footer p {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.05rem;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer-links ul li {
+	margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+	display: inline-block;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.05rem;
+	color: rgba(255, 255, 255, 0.8);
+	transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+	color: var(--primary-light);
+	transform: translateX(5px);
+}
+
+.footer-bottom {
+	width: 100%;
+	max-width: 1200px;
+	margin: 3rem auto 0 auto;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	text-align: center;
+}
+
+.footer-bottom p {
+	font-size: 0.95rem;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* ==========================================================================
+   11. RESPONSIVITA (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Přeskupení hero na úzších obrazovkách */
+@media (max-width: 1340px) {
+	.hero {
+		flex-direction: column;
+		gap: 1.5rem;
+		padding: 2rem 1.5rem;
+		text-align: center;
+	}
+
+	.hero-image {
+		display: block;
+		max-width: clamp(260px, 45vw, 400px);
+		height: auto;
+	}
+
+	.hero-text {
+		text-align: center;
+	}
+}
+
+/* Schování postranních panelů, reset paddingu */
+@media (max-width: 1024px) {
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.side {
+		display: none;
+	}
+
+	.bg-inner {
+		left: 0;
+		right: 0;
+	}
+
+	.description {
+		max-width: 90%;
+	}
+
+	.hero,
+	.hero-sec,
+	.summary,
+	.types {
+		max-width: 90%;
+		margin: 7rem auto 1.5rem auto !important;
+		padding: 2rem 1.25rem;
+		box-sizing: border-box !important;
+	}
+
+	.hero-sec,
+	.summary,
+	.types {
+		margin: 2rem auto 1.5rem auto !important;
+	}
+}
+
+/* Mobilní menu */
+@media (max-width: 768px) {
+	.navbar__toggle {
+		display: flex;
+	}
+
+	.navbar_menu {
+		display: none !important;
+		border-top: 1px solid rgba(209, 180, 226, 0.1);
+		box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); 
+		flex-direction: column;
+		gap: 0.5rem;
+		position: absolute;
+		top: calc(var(--navbar-height) - 10px);
+		left: auto;
+		right: 1.5rem;
+		width: 240px;
+		background-color: var(--primary-dark);
+		padding: 1rem;
+		border-radius: 12px;
+		text-align: center;
+		transition: opacity 0.25s ease, transform 0.25s ease;
+	}
+
+	.navbar_menu.is-open,
+	.navbar_menu.active {
+		display: flex !important;
+		transform: translateY(0);
+	}
+
+	.navbar__toggle.is-active span:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+
+	.navbar__toggle.is-active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.navbar__toggle.is-active span:nth-child(3) {
+		transform: rotate(-45deg) translate(6px, -6px);
+	}
+
+	.hero {
+		flex-direction: column;
+		padding: 2rem;
+	}
+
+	.site-footer {
+		padding: 3rem 1.5rem 1.5rem 1.5rem;
+		margin-top: 3rem;
+		text-align: center;
+	}
+
+	.footer-content {
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	.footer-content p {
+		margin: auto 4rem;
+	}
+
+	.footer-brand,
+	.footer-links,
+	.footer-info {
+		width: 100%;
+	}
+
+	.footer-bottom {
+		margin-top: 2rem;
+	}
+}
+
+/* Malé telefony */
+@media (max-width: 550px) {
+	.navbar {
+		padding: 0 1.5rem !important;
+	}
+
+	.navbar_title-text {
+		font-size: 1.25rem;
+		margin-left: 0.5rem;
+	}
+
+	.hero,
+	.summary,
+	.types {
+		box-sizing: border-box !important;
+		padding: 2rem 1.25rem !important;
+		width: auto !important;
+	}
+
+	/* .hero {
+		max-width: 95% !important; 
+	} */
+
+	.summary,
+	.types {
+		max-width: 100% !important;
+		margin: 7rem 0 1.5rem 0 !important;
+		margin: 2rem 0 1.5rem 0 !important;
+	}
+
+	.section-header,
+	.summary-text h2 {
+		width: 100% !important;
+		margin: 0 auto 1.5rem auto !important;
+		text-align: center !important;
+	}
+
+	.row {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 1.2rem !important;
+		width: 100% !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		list-style: none;
+	}
+
+	.card {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0 auto !important;
+		padding: 1.5rem 1rem !important;
+		box-sizing: border-box !important;
+	}
+
+	.description {
+		max-width: 100% !important;
+	}
+
+	.desc-type-number {
+		top: 1.5rem;
+		left: 1.5rem;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	.footer-content p {
+		margin: auto 1rem;
+	}
+
+}
